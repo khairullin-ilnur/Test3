@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="ru.kpfu.itis.model"/>
+    <bean id="parrot" class="ru.kpfu.itis.model.Parrot">
+        <property name="mName" value="OldPirate"/>
+        <property name="mOwner" ref="human"/>
+        <property name="mParrotShout">
+            <list>
+                <ref bean="parrotShout1"></ref>
+                <ref bean="parrotShout2"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="human" class="ru.kpfu.itis.model.Human">
+        <property name="mName" value="Misha"/>
+    </bean>
+
+    <bean id="parrotShout1" class="ru.kpfu.itis.model.ParrotShout">
+        <property name="mShout" value="Fedor"/>
+    </bean>
+
+    <bean id="parrotShout2" class="ru.kpfu.itis.model.ParrotShout">
+        <property name="mShout" value="The best!"/>
+    </bean>
+</beans>
